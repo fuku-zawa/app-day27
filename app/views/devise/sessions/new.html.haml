@@ -1,0 +1,23 @@
+.container 
+  %h2.headline Sign in
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    .form-area 
+      %ul
+        %li.input-list
+          .field
+            = f.label :email
+            %br/
+            = f.email_field :email, autofocus: true, autocomplete: "email", class: 'inputarea'
+        %li.input-list
+          .field
+            = f.label :password
+            %br/
+            = f.password_field :password, autocomplete: "current-password", class: 'inputarea'
+          -# - if devise_mapping.rememberable?
+          -#   .field
+          -#     = f.check_box :remember_me
+          -#     = f.label :remember_me
+        %li.input-list 
+          .actions
+            = f.submit "Submit", class: 'btn btn-warning submit-btn'
+    = render "devise/shared/links"
