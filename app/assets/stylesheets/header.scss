@@ -11,9 +11,11 @@ header {
 .header-logo{
   margin:20px 0 0 40px;
   float: left;
-  p {
+  .header-logo-boards {
     font-size: 18px;
     font-weight: 400;
+    text-decoration: none;
+    color: #333;
   }
 }
 
