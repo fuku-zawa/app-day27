@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :articles, dependent: :destroy
+  has_many :boards, dependent: :destroy
   
   def avatar_image
     # if profile&.avatar&.attached?
