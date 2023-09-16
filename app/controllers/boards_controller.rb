@@ -32,7 +32,13 @@ class BoardsController < ApplicationController
   end
 
   def edit
-    @board = current_user.boards.find(params[:id])
+    @board = Board.find(params[:id])
+    if current_user.id == @board.user_id
+      # current_userを使うことで、他人のeditをできなくする
+      @board = current_user.boards.find(params[:id])
+    else
+      redirect_to root_path, notice:'編集できんよ'
+    end
   end
 
   def update
