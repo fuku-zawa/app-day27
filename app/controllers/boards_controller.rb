@@ -22,7 +22,8 @@ class BoardsController < ApplicationController
     # userとboardは1対多なので、boards.build
     @board = current_user.boards.build(board_params)
     if @board.save
-      redirect_to board_path(@board), notice: '保存できたよ'
+      # 保存できたらidexに　board_path(@board)はいらない？
+      redirect_to root_path, notice: '保存できたよ'
     else
       flash.now[:error] = '保存に失敗しました' # rubocop:disable Layout/IndentationWidth
       render :new
