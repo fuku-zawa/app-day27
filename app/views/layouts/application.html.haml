@@ -12,21 +12,20 @@
   %body
     %header 
       .header
-        .clearfix
-          .header-logo
-            %p Boards 
-          - if user_signed_in?
-            .dropdown
-              = image_tag current_user.avatar_image, class: 'header_avatar dropbtn'
-              .dropdown-content
-                -# = link_to 'プロフィール', profile_path
-                %p プロフィール
-                -# = link_to 'お気に入り', favorites_path
-                = link_to 'ログアウト', destroy_user_session_path, data: { method: 'delete' }
-          - else
-            - unless current_page?(new_user_session_path)
-              .header-login 
-                = link_to 'ログイン', new_user_session_path, class: 'header_loginBtn btn btn-secondary'
+        .header-logo
+          = link_to 'Boards', root_path, class: 'header-logo-boards' 
+        - if user_signed_in?
+          .dropdown
+            = image_tag current_user.avatar_image, class: 'header_avatar dropbtn'
+            .dropdown-content
+              -# = link_to 'プロフィール', profile_path
+              %p プロフィール
+              -# = link_to 'お気に入り', favorites_path
+              = link_to 'ログアウト', destroy_user_session_path, data: { method: 'delete' }
+        - else
+          - unless current_page?(new_user_session_path)
+            .header-login 
+              = link_to 'ログイン', new_user_session_path, class: 'header_loginBtn btn btn-secondary'
       %hr
     - if flash.present?
       .flash 

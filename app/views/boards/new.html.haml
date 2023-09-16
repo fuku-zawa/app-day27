@@ -1,0 +1,18 @@
+.container 
+  %h2 New Board 
+  = form_with(model:@board, local:true) do |f|
+    .form-area 
+      %ul
+        %li.input-list
+          .field
+            = f.label :title, "Name"
+            %div
+              = f.text_field :title, class:"text inputarea"
+        %li.input-list
+          .field
+            = f.label :content, "Discription"
+            %div
+              = f.text_area :content, class:'inputarea discription'
+        %li.input-list 
+          .actions
+            = f.submit "Submit" , class:"btn btn-warning submit-btn"
