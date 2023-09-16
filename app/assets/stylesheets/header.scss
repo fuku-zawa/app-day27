@@ -1,16 +1,17 @@
 
-// header {
-  
-// }
-.clearfix::after {
-  content: '';
-  clear: both;
-  display: block;
+.header {
+  display: flex;
+  justify-content: space-between;
 }
+
+// .clearfix::after {
+//   content: '';
+//   clear: both;
+//   display: block;
+// }
 
 .header-logo{
   margin:20px 0 0 40px;
-  float: left;
   .header-logo-boards {
     font-size: 18px;
     font-weight: 400;
@@ -18,40 +19,11 @@
     color: #333;
   }
 }
-
-.dropdown {
-  position: relative;
-  // display: inline-block;
-  margin:20px 40px 0 0;
-  float: right;
-}
-
 .header-login {
-  float: right;
+  // float: right;
   margin:20px 30px 0 0;
 }
-
-.dropdown-content {
-  font-weight: normal;
-  display: none;
-  right: 0;
-  position: absolute;
-  background-color: white;
-  min-width: max-content;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-  padding:10px;
-  p {
-    margin-bottom: 5px;
-    color: #333;
-    font-weight: 500;
-  }
-  a {
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-  }
-}
-.dropdown:hover .dropdown-content {
-  display: block;
+.header_avatar {
+  position: relative;
+  margin:20px 40px 0 0;
 }

@@ -1,2 +1,20 @@
 .container
   = link_to "Boardを作成", new_board_path
+
+  %h2 All Boards
+  .card
+    .card-body
+      .flex-box
+        .card-title.flex-item
+          %h3.card-title-head Card title
+        .dropdown.flex-item
+          = image_tag "combine_shape.svg", class:"dropbtn"
+          .dropdown-content.mini
+            .drop-item
+              = link_to "編集する", root_path
+            .drop-item
+              = link_to "削除する", root_path
+      %p.card-text Some quick example text to build on the card title and make up the bulk of the card's content.
+      = image_tag current_user.avatar_image
+      -# = link_to 'Card link', root_path
+      -# = link_to 'Another link', root_path
