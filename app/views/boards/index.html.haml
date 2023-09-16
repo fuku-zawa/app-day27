@@ -24,7 +24,7 @@
                   -# eac文の中にいるので、board.idでidを渡してみた
                   = link_to "edit", edit_board_path(board.id)
                 .drop-item
-                  = link_to "delete", root_path
+                  = link_to "delete", board_path(board), data: {method: "delete", confirm: "本当に削除してもよろしいですか"}
         .card-text
           %p= board.content
         -# = image_tag current_user.avatar_image
