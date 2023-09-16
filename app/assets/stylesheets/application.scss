@@ -59,17 +59,21 @@ label {
   justify-content: space-between;
   margin: 0 0 10px 0;
   border: 0;
-
+}
+.card-link {
+  text-decoration: none;
 }
 .card {
   margin-top: 30px;
   border-width: 0;
+  
 }
 .card-body {
   background: #F4F4F4;
   width: 100%;
   border-radius: 10px;
 }
+
 .card-title-head {
   margin: 0;
 }
