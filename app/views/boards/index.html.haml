@@ -20,7 +20,8 @@
             = image_tag "combine_shape.svg", class:"dropbtn"
             .dropdown-content.mini
               .drop-item
-                = link_to "edit", root_path
+                -# eac文の中にいるので、board.idでidを渡してみた
+                = link_to "edit", edit_board_path(board.id)
               .drop-item
                 = link_to "delete", root_path
         .card-text
