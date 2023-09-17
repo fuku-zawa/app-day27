@@ -17,11 +17,17 @@ class TasksController < ApplicationController
     @task = current_user.tasks.build(task_params)
     if @task.save
       # 保存できたらidexに　board_path(@board)はいらない？
-      redirect_to task_path, notice: '保存できたよ'
+      redirect_to tasks_path, notice: '保存できたよ'
     else
       flash.now[:error] = '保存に失敗しました' # rubocop:disable Layout/IndentationWidth
       render :new
     end
+  end
+
+  private
+
+  def task_params
+    params.require(:task).permit(:title, :content,:deadline)
   end
 
 end

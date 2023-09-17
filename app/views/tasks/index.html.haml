@@ -1,6 +1,6 @@
 .container
   %h2 All Tasks
-  -# new board
+  -# new task
   .card.new-card
     .card-body.new-card-body
       .card-title.new-card-title
@@ -8,9 +8,9 @@
 
 
 
-  -# @boardsはBoard.all
+  -# @tasksはtask.all
   - @tasks.each do |task|
-    -# = link_to board_path(id: board.id), class: 'card-link' do
+    -# = link_to task_path(id: task.id), class: 'card-link' do
     .card
       .card-body
         .flex-box
