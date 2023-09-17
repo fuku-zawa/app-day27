@@ -1,0 +1,23 @@
+.container 
+  %h2 New Task
+  = form_with(model:@task, local:true) do |f|
+    .form-area 
+      %ul
+        %li.input-list
+          .field
+            = f.label :title, "Name"
+            %div
+              = f.text_field :title, class:"text inputarea board-name"
+        %li.input-list
+          .field
+            = f.label :content, "Content"
+            %div
+              = f.text_area :content, class:'inputarea description'
+        %li.input-list
+          .field
+            = f.label :deadline, "Deadline"
+            %div
+              = f.date_field :deadline, class:'board-name inputarea'
+        %li.input-list 
+          .actions
+            = f.submit "Submit" , class:"btn btn-warning submit-btn"
