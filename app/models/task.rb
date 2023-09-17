@@ -1,3 +1,3 @@
 class Task < ApplicationRecord
-  belomgs_to :profile
+  belongs_to :user
 end

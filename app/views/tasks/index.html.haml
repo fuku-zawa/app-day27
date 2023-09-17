@@ -1,0 +1,32 @@
+.container
+  %h2 All Tasks
+  -# new board
+  .card.new-card
+    .card-body.new-card-body
+      .card-title.new-card-title
+        = link_to '+ Add New Task', new_task_path, class: 'new-board'
+
+
+
+  -# @boardsはBoard.all
+  - @tasks.each do |task|
+    -# = link_to board_path(id: board.id), class: 'card-link' do
+    .card
+      .card-body
+        .flex-box
+          .card-title.flex-item
+            = task.title
+          - if current_user.id == task.user_id
+            .dropdown.flex-item
+              = image_tag "combine_shape.svg", class:"dropbtn"
+              .dropdown-content.mini
+                .drop-item
+                  -# eac文の中にいるので、task.idでidを渡してみた
+                  -# = link_to "edit", edit_task_path(task.id)
+                  Edit
+                .drop-item
+                  -# = link_to "delete", task_path(task), data: {method: "delete", confirm: "本当に削除してもよろしいですか"}
+                  Delete
+        .card-text
+          %p= task.content
+        = image_tag current_user.avatar_image
