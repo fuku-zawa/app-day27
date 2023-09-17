@@ -22,11 +22,9 @@
               .dropdown-content.mini
                 .drop-item
                   -# eac文の中にいるので、task.idでidを渡してみた
-                  -# = link_to "edit", edit_task_path(task.id)
-                  Edit
+                  = link_to "Edit", edit_task_path(task.id)
                 .drop-item
-                  -# = link_to "delete", task_path(task), data: {method: "delete", confirm: "本当に削除してもよろしいですか"}
-                  Delete
+                  = link_to "Delete", task_path(task), data: {method: "delete", confirm: "本当に削除してもよろしいですか"}
         .card-text
           %p= task.content
         = image_tag current_user.avatar_image
