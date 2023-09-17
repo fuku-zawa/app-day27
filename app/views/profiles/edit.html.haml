@@ -1,0 +1,39 @@
+.container 
+  %h2 Edit Profile
+  %ul
+    - @profile.errors.full_messages.each do |message|
+      %li= message
+
+  = form_with(model: @profile, url: profile_path, method: "put", local: true) do |f|
+    .field
+      %div
+        = f.label :avatar, "avatar"
+      %div
+        = f.file_field :avatar
+    .field
+      %div
+        = f.label :nickname, "nickname"
+      %div
+        = f.text_field :nickname, class: "text", class: 'inputarea board-name'
+    .field
+      %div
+        = f.label :introduction, "introduce"
+      %div
+        = f.text_area :introduction, class: 'inputarea description'
+    .field
+      %div
+        = f.label :gender, "gender"
+      %div
+        -# selectはクラスを付与するときは第4引数でないとだめ
+        = f.select :gender, Profile.genders.map{|k,v| [I18n.t("enum.genders.#{k}"),k]},  {}, {class: "text inputarea board-name"}
+    .field
+      %div
+        = f.label :birthday, "birthday"
+      %div
+        = f.date_field :birthday, class: "text inputarea board-name"
+    .field
+      %div
+        = f.check_box :subscribed
+        = f.label :subscribed, "receive a letter"
+  
+    = f.submit "submit", class: "btn btn-warning submit-btn"
