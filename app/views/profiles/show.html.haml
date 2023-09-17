@@ -1,0 +1,32 @@
+.container.profilePage
+  .profilePage_user
+    .profilePage_user_image
+      = image_tag current_user.avatar_image
+    .profilePage_user_basicInfo
+      .profilePage_user_name
+        .profilePage_user_displayName
+          #{current_user.display_name}(#{current_user.age})
+          -# #{current_user.display_name} (#{current_user.age}・#{I18n.t("enum.genders.#{current_user.gender}")})
+        .profilePage_user_actionButton
+          = link_to 'Edit', edit_profile_path
+      .profilePage_user_introduction
+        = current_user.profile&.introduction
+
+    - current_user.boards.each do |board|
+      .card
+        .card-body
+          .flex-box
+            .card-title.flex-item
+              = board.title
+            - if current_user.id == board.user_id
+              .dropdown.flex-item
+                = image_tag "combine_shape.svg", class:"dropbtn"
+                .dropdown-content.mini
+                  .drop-item
+                    -# each文の中にいるので、board.idでidを渡してみた
+                    = link_to "Edit", edit_board_path(board.id)
+                  .drop-item
+                    = link_to "Delete", board_path(board), data: {method: "delete", confirm: "本当に削除してもよろしいですか"}
+          .card-text
+            %p= board.content
+          = image_tag current_user.avatar_image

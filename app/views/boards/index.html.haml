@@ -27,5 +27,4 @@
                   = link_to "delete", board_path(board), data: {method: "delete", confirm: "本当に削除してもよろしいですか"}
         .card-text
           %p= board.content
-        -# = image_tag current_user.avatar_image
-        = image_tag 'profile01.png'
+        = image_tag current_user.avatar_image

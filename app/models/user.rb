@@ -6,12 +6,21 @@ class User < ApplicationRecord
 
   has_many :boards, dependent: :destroy
   has_one :profile, dependent: :destroy
-  
-  def avatar_image
-    # if profile&.avatar&.attached?
-    #   profile.avatar
-    # else
-    'profile01.png'
-    # end
+
+  delegate :birthday, :age, :gender, to: :profile, allow_nil: true
+
+  def display_name
+    # ぼっち演算子
+    profile&.nickname || self.email.split('@')[0]
   end
+
+
+  def avatar_image
+    if profile&.avatar&.attached?
+      profile.avatar
+    else
+      'default-avatar.png'
+    end
+  end
+  
 end
