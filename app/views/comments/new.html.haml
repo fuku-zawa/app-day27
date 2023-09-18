@@ -1,0 +1,14 @@
+.container 
+  %url
+    - @comment.errors.full_messages.each do |message|
+      %li= message 
+  %h2 Post Comment
+  = form_with(model: @comment, url: task_comments_path(@comment.task), local: true) do |f|
+    %ul
+      %li.input-list
+        .field
+          =f.label :content, "Description"
+      %li.input-list
+        .field
+          =f.text_area :content, class:'inputarea description'
+      = f.submit "Submit", class: "btn btn-warning submit-btn"
