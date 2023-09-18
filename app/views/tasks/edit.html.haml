@@ -4,10 +4,11 @@
     - @task.errors.full_messages.each do |message|
       %li= message
   = form_with(model:@task,  local:true) do |f|
-    -# %div
-    -#   = f.label :eyecatch, "アイキャッチ"
-    -# %div
-    -#   = f.file_field :eyecatch
+    .field
+      %div
+        = f.label :eyecatch, "アイキャッチ"
+      %div
+        = f.file_field :eyecatch
     .field
       %div
         = f.label :title, "Name"

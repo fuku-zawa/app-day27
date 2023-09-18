@@ -18,6 +18,7 @@
 @import 'flash';
 @import 'dropdown';
 @import 'card';
+@import 'eyecatch';
 
 
 h2 {
@@ -28,7 +29,9 @@ h2 {
     margin-top: 33px;
   }
 }  
-
+.container {
+  margin-bottom: 80px;
+}
 label {
   font-size: 18px;
   font-weight: 400;

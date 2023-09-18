@@ -30,7 +30,7 @@ class TasksController < ApplicationController
       # current_userを使うことで、他人のeditをできなくする
       @task = current_user.tasks.find(params[:id])
     else
-      redirect_to root_path, notice:'編集できんよ'
+      redirect_to root_path, notice: '編集できんよ'
     end
   end
 
@@ -54,7 +54,7 @@ class TasksController < ApplicationController
 
   private
   def task_params
-    params.require(:task).permit(:title, :content,:deadline)
+    params.require(:task).permit(:title, :content, :eyecatch, :deadline)
   end
 
 end

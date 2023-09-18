@@ -7,12 +7,13 @@
         = link_to '+ Add New Task', new_task_path, class: 'new-board'
 
 
-
   -# @tasksはtask.all
   - @tasks.each do |task|
     -# = link_to task_path(id: task.id), class: 'card-link' do
     .card
       .card-body
+        - if task.eyecatch.attached?
+          = image_tag task.eyecatch, class: 'eyecatch'
         .flex-box
           .card-title.flex-item
             = task.title
@@ -27,4 +28,4 @@
                   = link_to "Delete", task_path(task), data: {method: "delete", confirm: "本当に削除してもよろしいですか"}
         .card-text
           %p= task.content
-        = image_tag current_user.avatar_image
+        = image_tag current_user.avatar_image  
