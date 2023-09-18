@@ -4,28 +4,30 @@
   .card.new-card
     .card-body.new-card-body
       .card-title.new-card-title
-        = link_to '+ Add New Task', new_task_path, class: 'new-board'
-
+        = link_to new_task_path, class: 'new-board' do
+          %p.new-card-text= '+ Add New Task'
 
   -# @tasksはtask.all
   - @tasks.each do |task|
     -# = link_to task_path(id: task.id), class: 'card-link' do
-    .card
-      .card-body
-        - if task.eyecatch.attached?
-          = image_tag task.eyecatch, class: 'eyecatch'
-        .flex-box
-          .card-title.flex-item
-            = task.title
-          - if current_user&.id == task.user_id
-            .dropdown.flex-item
-              = image_tag "combine_shape.svg", class:"dropbtn"
-              .dropdown-content.mini
-                .drop-item
-                  -# eac文の中にいるので、task.idでidを渡してみた
-                  = link_to "Edit", edit_task_path(task.id)
-                .drop-item
-                  = link_to "Delete", task_path(task), data: {method: "delete", confirm: "本当に削除してもよろしいですか"}
-        .card-text
-          %p= task.content
-        = image_tag task.user.avatar_image  
+    .task-link
+      = link_to task_path(task) do
+        .card
+          .card-body
+            - if task.eyecatch.attached?
+              = image_tag task.eyecatch, class: 'eyecatch'
+            .flex-box
+              .card-title.flex-item
+                %h4= task.title
+              -# - if current_user&.id == task.user_id
+                -# .dropdown.flex-item
+                -#   = image_tag "combine_shape.svg", class:"dropbtn"
+                  -# .dropdown-content.mini
+                  -#   .drop-item
+                  -#     -# eac文の中にいるので、task.idでidを渡してみた
+                  -#     = link_to "Edit", edit_task_path(task.id)
+                  -#   .drop-item
+                  -#     = link_to "Delete", task_path(task), data: {method: "delete", confirm: "本当に削除してもよろしいですか"}
+            .card-text
+              %p= task.content
+            = image_tag task.user.avatar_image  
