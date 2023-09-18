@@ -1,6 +1,8 @@
 class Task < ApplicationRecord
   belongs_to :user
+  has_many :comments, dependent: :destroy
   has_one_attached :eyecatch
+
 
   # def eyecatch_image
   #   if @task&.eyecatch&.attached?
