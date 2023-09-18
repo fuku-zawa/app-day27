@@ -3,10 +3,11 @@ class CommentsController < ApplicationController
     task = Task.find(params[:task_id])
     @comment = task.comments.build
   end
-
+  
   def create
-    task = task.find(params[:task_id])
+    task = Task.find(params[:task_id])
     @comment = task.comments.build(comment_params)
+    @comment.user_id = current_user.id
     if @comment.save
       redirect_to task_path(task), notice:"コメントを追加"
     else
