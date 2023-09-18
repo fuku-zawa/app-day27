@@ -1,0 +1,29 @@
+.container.profile
+
+  .flex-box
+    .flex-item
+      %h2= @task.title
+    - if current_user&.id == @task.user_id
+      .dropdown.flex-item
+        = image_tag "combine_shape.svg", class:"dropbtn"
+        .dropdown-content.mini
+          .drop-item
+            = link_to "Edit", edit_task_path(@task.id)
+          .drop-item
+            = link_to "Delete", task_path(@task), data: {method: "delete", confirm: "本当に削除してもよろしいですか"}
+
+  - if @task.eyecatch.attached?
+    = image_tag @task.eyecatch, class: 'eyecatch'
+
+  .card
+    .card-body
+      .card-text
+        %p= @task.content
+
+  .comment
+    %h3= 'Comment'
+    -# .flex-box 
+    -#   .flex-item 
+    -#     = image_tag 
+    -#   .flex-item 
+    -#     =
