@@ -18,6 +18,7 @@
 @import 'flash';
 @import 'dropdown';
 @import 'card';
+@import 'eyecatch';
 
 
 h2 {
@@ -28,12 +29,15 @@ h2 {
     margin-top: 33px;
   }
 }  
-
+.container {
+  margin-bottom: 80px;
+}
 label {
   font-size: 18px;
   font-weight: 400;
   color: #000;
 }
+
 
 .inputarea {
   background-color: #F4F4F4;
@@ -63,4 +67,7 @@ label {
   justify-content: space-between;
   margin: 0 0 10px 0;
   border: 0;
+}
+.comment {
+  margin-top: 40px;
 }

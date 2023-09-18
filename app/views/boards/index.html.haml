@@ -16,7 +16,7 @@
         .flex-box
           .card-title.flex-item
             = board.title
-          - if current_user.id == board.user_id
+          - if current_user&.id == board.user_id
             .dropdown.flex-item
               = image_tag "combine_shape.svg", class:"dropbtn"
               .dropdown-content.mini
@@ -27,4 +27,4 @@
                   = link_to "delete", board_path(board), data: {method: "delete", confirm: "本当に削除してもよろしいですか"}
         .card-text
           %p= board.content
-        = image_tag current_user.avatar_image
+        = image_tag board.user.avatar_image

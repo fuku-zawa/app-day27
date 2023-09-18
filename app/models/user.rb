@@ -5,9 +5,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :boards, dependent: :destroy
+  has_many :tasks, dependent: :destroy
   has_one :profile, dependent: :destroy
 
   delegate :birthday, :age, :gender, to: :profile, allow_nil: true
+  # delegate :eyecatch, :deadline, to: :task, allow_nil: true
 
   def display_name
     # ぼっち演算子

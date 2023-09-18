@@ -28,7 +28,6 @@ class BoardsController < ApplicationController
       flash.now[:error] = '保存に失敗しました' # rubocop:disable Layout/IndentationWidth
       render :new
     end
-
   end
 
   def edit
