@@ -1,11 +1,9 @@
 .container
-  %h2 All Boards
-  -# new board
-  .card.new-card
-    .card-body.new-card-body
-      .card-title.new-card-title
-        = link_to '+ Add new board', new_board_path, class: 'new-board'
-
+  .flex-box
+    .flex-item
+      %h2 All Boards
+    .flex-item
+      = link_to '+ Add new board', new_board_path, class: 'btn btn-primary'
 
 
   -# @boardsはBoard.all
