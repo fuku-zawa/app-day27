@@ -31,6 +31,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'erb2haml'
 gem 'hamlit'
 gem 'devise'
+gem 'aws-sdk-s3', require: false
+gem 'aws-sdk-core'
 
 
 group :development, :test do
