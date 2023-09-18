@@ -68,6 +68,17 @@ label {
   margin: 0 0 10px 0;
   border: 0;
 }
+
+// comment
 .comment {
   margin-top: 40px;
+}
+.comment-box {
+  margin-top: 20px;
+  justify-content: left;
+}
+.comment-item {
+  img {
+    margin-right: 20px;
+  }
 }

@@ -20,9 +20,14 @@
         %p= @task.content
 
   .comment
-    %h3= 'Comment'
-    -# .flex-box 
-    -#   .flex-item 
-    -#     = image_tag 
-    -#   .flex-item 
-    -#     =
+    .flex-box
+      .flex-item 
+        %h3= 'Comment'
+      .flex-item
+        = link_to '+ Add new comment', new_task_comment_path(@task.id), class: 'new-board btn btn-primary'
+    - @comments.each do |comment|
+      .flex-box.comment-box
+        .flex-item.comment-item
+          = image_tag comment.user.avatar_image
+        .flex-item.comment-item 
+          = comment.content
