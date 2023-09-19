@@ -31,10 +31,14 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'erb2haml'
 gem 'hamlit'
 gem 'devise'
+gem 'aws-sdk-s3', require: false
+gem 'aws-sdk-core'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'dotenv-rails'
 end
 
 group :development do
