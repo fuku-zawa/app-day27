@@ -1,0 +1,16 @@
+{
+  "name": "app day27",
+  "description": "This is appday27",
+  "keywords": [],
+  "website": "",
+  "repository": "https://github.com/fuku-zawa/app-day27",
+  "env": {},
+  "addons": [
+    "heroku-postgresql:hobby-dev"
+  ],
+  "buildpacks": [{
+    "url": "heroku/nodejs"
+  }, {
+    "url": "heroku/ruby"
+  }]
+}
