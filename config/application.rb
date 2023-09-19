@@ -11,8 +11,10 @@ module AppDay27
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
 
-    Bundler.require(*Rails.groups)
-    Dotenv::Railtie.load
+    if Rails.env.development? || Rails.env.test?
+      Bundler.require(*Rails.groups)
+      Dotenv::Railtie.load
+    end
 
 
     config.i18n.default_locale = :ja
